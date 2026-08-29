@@ -20,14 +20,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install "Shippori Antique B1"
-        uses: SnO2WMaN/install-fontsource-action@v0.0.2
+        uses: SnO2WMaN/install-fontsource-action@v0.0.3
         with:
           font-name: Shippori Antique B1
       - name: Install "Julia Mono"
         uses: SnO2WMaN/install-juliamono-action@v0.0.1
-      - uses: typst-community/setup-typst@v4
+      - uses: typst-community/setup-typst@v5
       - run: typst compile main.typ main.pdf
       - name: Create page directory
         run: |
@@ -36,7 +36,7 @@ jobs:
           echo "<meta http-equiv=\"refresh\" content=\"0;URL='$(gh api "repos/$GITHUB_REPOSITORY" --jq '.html_url')'\">" > ./_pages/index.html
         env:
           GH_TOKEN: ${{ github.token }}
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _pages/
 
@@ -48,5 +48,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
         id: deployment

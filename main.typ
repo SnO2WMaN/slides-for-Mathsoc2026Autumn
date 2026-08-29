@@ -1,11 +1,11 @@
 #import "@preview/cades:0.3.1": qr-code
 #import "@preview/ctheorems:1.1.3": *
-#import "@preview/curryst:0.5.0": prooftree, rule
-#import "@preview/diagraph:0.3.5": *
+#import "@preview/curryst:0.6.0": prooftree, rule
+#import "@preview/diagraph:0.3.7": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/oxifmt:1.0.0": strfmt
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 
 #import themes.university: *
 #show: thmrules
@@ -55,8 +55,8 @@
 
 #let proves = $tack.r$
 #let nproves = $tack.r.not$
-#let models = $tack.r.double$
-#let nmodels = $tack.r.double.not$
+#let models = $tack.rr$
+#let nmodels = $tack.rr.not$
 
 #let Bew = $bold(upright("Pr"))$
 #let Con = $bold(upright("Con"))$
@@ -337,9 +337,9 @@ $Logic("F")$ は $Logic("Int")$ よりも弱い．
       10. $(A -> B) and (B -> C) -> (A -> C): Axiom("I")$
     ],
     [
-      11. #prooftree(rule(name: Rule("MP"), $B$, $A -> B$, $A$))
-      12. #prooftree(rule(name: Rule("RA"), $A and B$, $A$, $B$))
-      13. #prooftree(rule(name: Rule("AF"), $B -> A$, $A$))
+      11. #prooftree(rule(name: Rule("MP"), $A -> B$, $A$, $B$))
+      12. #prooftree(rule(name: Rule("RA"), $A$, $B$, $A and B$))
+      13. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
     ],
   )
 ]
@@ -375,7 +375,7 @@ $Logic("F")$ は $Logic("Int")$ よりも弱い．
 == 様相論理のFMT意味論
 
 #definition[
-  $Logic("Cl")$ に必然化則 $#prooftree(rule(name: Rule("Nec"), $box A$, $A$))$ を入れた論理を $Logic("N")$ と呼ぶ．
+  $Logic("Cl")$ に必然化則 $#prooftree(rule(name: Rule("Nec"), $A$, $box A$))$ を入れた論理を $Logic("N")$ と呼ぶ．
 ]
 
 Fitting, Marek, Truszczyńskiは $Logic("N")$ の分析のために次の意味論を導入した．(cf: @FMT92)
@@ -433,14 +433,14 @@ Fitting, Marek, Truszczyńskiは $Logic("N")$ の分析のために次の意味�
     ],
     [
       7. $A and (B or C) -> (A and B) or (A and C)$
-      8. #prooftree(rule(name: Rule("RC"), $A -> B and C$, $A -> B$, $A -> C$))
-      9. #prooftree(rule(name: Rule("RD"), $A or B -> C$, $A -> C$, $B -> C$))
-      10. #prooftree(rule(name: Rule("RI"), $A -> C$, $A -> B$, $B -> C$))
+      8. #prooftree(rule(name: Rule("RC"), $A -> B$, $A -> C$, $A -> B and C$))
+      9. #prooftree(rule(name: Rule("RD"), $A -> C$, $B -> C$, $A or B -> C$))
+      10. #prooftree(rule(name: Rule("RI"), $A -> B$, $B -> C$, $A -> C$))
     ],
     [
-      11. #prooftree(rule(name: Rule("MP"), $B$, $A -> B$, $A$))
-      12. #prooftree(rule(name: Rule("RA"), $A and B$, $A$, $B$))
-      13. #prooftree(rule(name: Rule("AF"), $B -> A$, $A$))
+      11. #prooftree(rule(name: Rule("MP"), $A -> B$, $A$, $B$))
+      12. #prooftree(rule(name: Rule("RA"), $A$, $B$, $A and B$))
+      13. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
     ],
   )
 ]
