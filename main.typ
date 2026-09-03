@@ -494,7 +494,7 @@ $LogicVF$ 上でも$not not top$ は 継続性を表す．
   $Logic("NP"^box) := Logic("N") + not box bot$ は $bot$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全である．
 ]
 
-$top equiv not bot$ だから， $Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそうと思うが，実はそうならない．
+$Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそうと思うが，実はそうならない．
 
 #theorem[
   任意の論理式 $A$ に対し，以下は同値．
@@ -510,20 +510,19 @@ $top equiv not bot$ だから， $Logic("NP"^box)$ は $LogicVF + not not top$ �
 
 #pagebreak()
 
-$Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $Logic("N")$ 上では同値でない．\
-このことが微妙な違いを引き起こしている．
-
 #theorem[
-  $Logic("NP"^dia) := Logic("N") + not box not box top$ は $not top$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全．
+  以下が同値
+  1. $LogicVF + not not top proves A$
+  2. $Logic("N") + not box not box top proves A^corsiTr$
 ]
 
-#theorem[
-  $LogicVF + not not top proves A <==> Logic("NP"^dia) proves A^corsiTr$．つまり $Logic("NP"^dia)$ は $LogicVF + not not top$ のModal Companionである．
-]
+つまり $Logic("N") + not box not box top$ が $LogicVF + not not top$ のModal Companionである．
 
-メモ:
-- $Logic("NP"^box) := Logic("N") + not box bot$
-- $Logic("NP"^dia) := Logic("N") + not box not box top$
+$Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $Logic("N")$ 上では同値でない．このことが微妙な違いを引き起こしている．
+
+メモ: $Logic("NP"^box) := Logic("N") + not box bot$
+
+*実はより一般にclosed negative formという形の論理式の拡張に対して一般化出来る．*
 
 = おわりに
 
