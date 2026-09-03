@@ -338,8 +338,7 @@ $Logic("F")$ は $Logic("Int")$ よりも弱い．
     ],
     [
       11. #prooftree(rule(name: Rule("MP"), $A -> B$, $A$, $B$))
-      12. #prooftree(rule(name: Rule("RA"), $A$, $B$, $A and B$))
-      13. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
+      12. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
     ],
   )
 ]
@@ -439,8 +438,7 @@ Fitting, Marek, Truszczyńskiは $Logic("N")$ の分析のために次の意味�
     ],
     [
       11. #prooftree(rule(name: Rule("MP"), $A -> B$, $A$, $B$))
-      12. #prooftree(rule(name: Rule("RA"), $A$, $B$, $A and B$))
-      13. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
+      12. #prooftree(rule(name: Rule("AF"), $A$, $B -> A$))
     ],
   )
 ]
@@ -496,13 +494,14 @@ $LogicVF$ 上でも$not not top$ は 継続性を表す．
   $Logic("NP"^box) := Logic("N") + not box bot$ は $bot$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全である．
 ]
 
-$Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそうと思うが，実はそうならない．
+$top equiv not bot$ だから， $Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそうと思うが，実はそうならない．
 
 #theorem[
   任意の論理式 $A$ に対し，以下は同値．
   1. $LogicVF proves A$
   2. $Logic("N") proves A^corsiTr$
   3. $Logic("NP"^box) proves A^corsiTr$
+  4. $Logic("N") + {not box not^(2n) bot : n in X } proves A^corsiTr$．ここで $X subset.eq NN$ は任意．
 
   つまり $Logic("NP"^box)$ も $LogicVF$ のModal Companionである．
 ]
@@ -515,12 +514,16 @@ $Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $L
 このことが微妙な違いを引き起こしている．
 
 #theorem[
-  $Logic("NP"^dia)$ は $not top$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全．
+  $Logic("NP"^dia) := Logic("N") + not box not box top$ は $not top$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全．
 ]
 
 #theorem[
   $LogicVF + not not top proves A <==> Logic("NP"^dia) proves A^corsiTr$．つまり $Logic("NP"^dia)$ は $LogicVF + not not top$ のModal Companionである．
 ]
+
+メモ:
+- $Logic("NP"^box) := Logic("N") + not box bot$
+- $Logic("NP"^dia) := Logic("N") + not box not box top$
 
 = おわりに
 
