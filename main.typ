@@ -498,9 +498,9 @@ $Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそう�
 
 #theorem[
   任意の論理式 $A$ に対し，以下は同値．
-  1. $LogicVF proves A$
-  2. $Logic("N") proves A^corsiTr$
-  3. $Logic("NP"^box) proves A^corsiTr$
+  1. $LogicVF proves A$．
+  2. $Logic("N") proves A^corsiTr$．
+  3. $Logic("NP"^box) proves A^corsiTr$．
   4. $Logic("N") + {not box not^(2n) bot : n in X } proves A^corsiTr$．ここで $X subset.eq NN$ は任意．
 
   つまり $Logic("NP"^box)$ も $LogicVF$ のModal Companionである．
@@ -512,8 +512,9 @@ $Logic("NP"^box)$ は $LogicVF + not not top$ のModal Companionになりそう�
 
 #theorem[
   以下が同値
-  1. $LogicVF + not not top proves A$
-  2. $Logic("N") + not box not box top proves A^corsiTr$
+  1. $LogicVF + not not top proves A$．
+  2. $Logic("N") + not box not box top proves A^corsiTr$．
+  3. $Logic("N") + not box not box top + {not box not^(2n) bot : n in X } proves A^corsiTr$．ここで $X subset.eq NN$ は任意．
 ]
 
 つまり $Logic("N") + not box not box top$ が $LogicVF + not not top$ のModal Companionである．
@@ -523,6 +524,25 @@ $Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $L
 メモ: $Logic("NP"^box) := Logic("N") + not box bot$
 
 *実はより一般にclosed negative formという形の論理式の拡張に対して一般化出来る．*
+
+== $Logic("NR")$ について
+
+他の継続性についても議論できる．
+
+#fact[
+  $Logic("NR") := Logic("N") + #prooftree(rule(name: Rule("Nec"), $not A$, $not box A$))$ は 任意の $A$ に対して $box A$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全である．
+]
+
+
+メモ: $Logic("NP"^box) := Logic("N") + not box bot$ は $bot$-継続的
+
+#theorem[
+  $Logic("VFR") := Logic("VF") + #prooftree(rule(name: Rule("Ros"), $A$, $B -> A$))$ は任意の $A -> B$-継続的な様相論理のFMTモデルのクラスに対して健全かつ完全
+]
+
+#theorem[
+  $Logic("NR")$ は $Logic("VFR")$ のmodal companion．
+]
 
 = おわりに
 
