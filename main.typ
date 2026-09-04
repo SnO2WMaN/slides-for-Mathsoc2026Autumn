@@ -530,14 +530,14 @@ $Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $L
 他の継続性についても議論できる．
 
 #fact[
-  $Logic("NR") := Logic("N") + #prooftree(rule(name: Rule("Nec"), $not A$, $not box A$))$ は 任意の $A$ に対して $box A$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全である．
+  $Logic("NR") := Logic("N") + #prooftree(rule(name: Rule("Ros"), $not A$, $not box A$))$ は 任意の $A$ に対して $box A$-継続的な様相論理のFMTモデルのクラスに対し健全かつ完全である．
 ]
 
 
 メモ: $Logic("NP"^box) := Logic("N") + not box bot$ は $bot$-継続的
 
 #theorem[
-  $Logic("VFR") := Logic("VF") + #prooftree(rule(name: Rule("Ros"), $A$, $B -> A$))$ は任意の $A -> B$-継続的な様相論理のFMTモデルのクラスに対して健全かつ完全
+  $Logic("VFR") := Logic("VF") + #prooftree(rule(name: Rule("Ros"), $not A$, $not box A$))$ は任意の $A -> B$-継続的な様相論理のFMTモデルのクラスに対して健全かつ完全
 ]
 
 #theorem[
@@ -554,6 +554,8 @@ $Logic("K")$ 上では同値だった $not box bot$ と $not box not top$ は $L
   - $Logic("N")$ は $LogicVF$ のModal Companionである．
 
   - $LogicVF$ 上の継続性に関する拡張を分析した．
+
+  - future work: *そもそもこの論理は何？*
 ]
 
 == ありがとうございました
